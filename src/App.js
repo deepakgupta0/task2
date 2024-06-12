@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy } from "react";
+import InvoiceList from "./components/InvoiceList";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { InvoiceProvider } from "./components/InvoiceContext";
+import Layout from "./components/Layout";
+import { ToastContainer } from "react-toastify";
 
+/** LAZY LOADING */
+const ImportInvoices = lazy(() => import("./components/ImportInvoices"));
+const InvoiceWizard = lazy(() => import("./components/InvoiceWizard"));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <InvoiceList />,
+      },
+      {
+        path: "import",
+        element: (
+          <Suspense fallback={<>LOADING.......</>}>
+            <ImportInvoices />
+          </Suspense>
+        ),
+      },
+      {
+        path: "create",
+        element: (
+          <Suspense fallback={<>LOADING.......</>}>
+            <InvoiceWizard />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+]);
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <InvoiceProvider>
+      <RouterProvider router={router} />
+      <ToastContainer />
+    </InvoiceProvider>
   );
 }
 
