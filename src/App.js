@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { InvoiceProvider } from "./components/InvoiceContext";
 import Layout from "./components/Layout";
 import { ToastContainer } from "react-toastify";
+import Error404 from "./components/Error404";
 
 /** LAZY LOADING */
 const ImportInvoices = lazy(() => import("./components/ImportInvoices"));
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <Error404 />,
     children: [
       {
         path: "/",

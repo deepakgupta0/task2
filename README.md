@@ -18,17 +18,21 @@ This project is an Invoice Management Tool built using React and Tailwind CSS. I
 - List invoices
 - Import invoices via Excel
 - Manually add invoices
+- Fallback 404 Page
+- User-friendly toast messages
 
 ## Routes
 
 - `/` - List invoices
 - `/import` - Import invoices
 - `/create` - Manually add invoice
+- `*` - Fallback 404 Page
 
 ## Technology Used
 
 - React
 - Tailwind CSS
+- React Toastify
 
 ## Architecture Pattern
 
@@ -40,6 +44,8 @@ This project is an Invoice Management Tool built using React and Tailwind CSS. I
 2. **Configurable Fields**: Followed industry standards for creating filters and forms by keeping all fields configurable via a constants file.
 3. **Global Store**: Created a global store and passed it to all children using Context API.
 4. **State Management**: Decoupled state update logic into a Provider component using the `useReducer` hook.
+5. **Fallback 404 Page**: Added a creative 404 page for undefined routes.
+6. **User-friendly Toast Messages**: Implemented using React Toastify.
 
 ## Available Scripts
 
