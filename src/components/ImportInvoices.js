@@ -27,8 +27,6 @@ const ImportInvoices = () => {
           position: "bottom-right",
           closeOnClick: true,
           pauseOnHover: false,
-          closeOnClick: true,
-          pauseOnHover: false,
         });
         navigate("/");
       } catch (error) {
