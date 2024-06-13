@@ -5,6 +5,7 @@ import { InvoiceProvider } from "./components/InvoiceContext";
 import Layout from "./components/Layout";
 import { ToastContainer } from "react-toastify";
 import Error404 from "./components/Error404";
+import "react-toastify/dist/ReactToastify.css";
 
 /** LAZY LOADING */
 const ImportInvoices = lazy(() => import("./components/ImportInvoices"));
